@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Map of Vietnam</title>
+    <base href="./" />
+    <link rel="stylesheet" href="./style.css" />
+    <script src="./script.js" defer></script>
+  </head>
+
+  <body>
+    <div class="container">
+      <div class="article-header">
+        <h1 class="title">
+          [Infographic] Phương án sắp xếp chi tiết 30 quận, huyện, thị xã của Hà
+          Nội
+        </h1>
+        <p class="sapo">
+          NDO -
+          <i>
+            Hà Nội với tổng diện tích gần 3.360 km2, 30 đơn vị hành chính cấp
+            huyện và dân số khoảng hơn 8,5 triệu người, dự kiến giảm từ 526
+            phường xã xuống còn 126.</i
+          >
+        </p>
+        <div class="sapo-image">
+          <img src="./sapo-image.png" alt="Sapo Image" />
+        </div>
+      </div>
+
+      <div class="instruction-banner">
+        <p>Mời độc giả nhấn vào từng địa phương để xem thông tin chi tiết</p>
+        <img
+          src="./instruction-icon.png"
+          alt="Instruction Icon"
+          class="instruction-icon"
+        />
+      </div>
+
+      <div class="map-container">
+        <img src="./hanoi-map.png" usemap="#image-map" alt="Hanoi Map" />
+        <canvas id="mapCanvas"></canvas>
+        <map name="image-map" id="hanoi-map"> </map>
+      </div>
+    </div>
+
+    <div class="tooltip-box"></div>
+  </body>
+</html>
