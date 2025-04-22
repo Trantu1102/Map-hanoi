@@ -111,20 +111,29 @@ const tooltip = document.querySelector('.tooltip-box');
 const showTooltip = (data, event) => {
     tooltip.style.display = 'block';
 
-    // Cập nhật hiển thị tooltip với số lượng phường
+    // Kiểm tra nếu là huyện
+    const isHuyen = data.name.includes('Huyện');
+    const currentWardsList = data.current_wards.list;
+    const futureWardsList = isHuyen ? 
+        data.future_wards.list.map(ward => `Xã ${ward}`) :
+        data.future_wards.list;
+
     tooltip.innerHTML = `
         <h2>${data.name}</h2>
         <div class="current-wards">
-            <h3>XÃ, PHƯỜNG, THỊ TRẤN HIỆN TẠI <span class="ward-count">${data.current_wards.total}</span></h3>
-            <p class="ward-list">${data.current_wards.list.join(' • ')}</p>
+            <h3>
+                PHƯỜNG, XÃ HIỆN TẠI 
+                <span class="ward-count">${data.current_wards.total}</span>
+            </h3>
+            <p class="ward-list">${currentWardsList.join(' • ')}</p>
         </div>
         <div class="future-wards">
             <h3>
-                PHƯỜNG SAU SẮP XẾP 
+                PHƯỜNG, XÃ SAU SẮP XẾP 
                 <span class="ward-count">${data.future_wards.total}</span>
                 <span class="reduction-badge">Giảm ${data.current_wards.total - data.future_wards.total} phường</span>
             </h3>
-            <p class="ward-list highlight">${data.future_wards.list.join(' • ')}</p>
+            <p class="ward-list highlight">${futureWardsList.join(' • ')}</p>
         </div>
     `;
 
